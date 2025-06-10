@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="app.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <title><%= title %> - Trang tin điện tử</title>
+</head>
+<body>
+    <div class="container">
+        <div id="phantren">
+            <img src="\images\banner.png" class="banner" />
+            <style>
+                .banner {
+                    width: 100%;
+                    height: auto;
+                }
+            </style>
+        </div>
+        <!-- Menu ngang -->
+        <div class="menu-wrapper">
+					<div class="phanmenungang1">
+						<form class="search-form" action="#" method="get" id="formTimKiem">
+							<input type="text" placeholder="Tìm kiếm..." name="q" id="inputTimKiem">
+							<button type="submit">
+							  <span class="material-icons">search</span>
+							</button>
+						</form>
+					</div>
+
+					<div class="phanmenungang2">
+					  <div class="menu-item ">
+						<a class="menungang" href="/">
+						  <span class="material-icons">home</span> Trang chủ 
+						</a>
+					  </div>
+
+					  <div class="menu-item active">
+						<a class="menungang" href="/tintucsukien">
+						  <span class="material-icons">article</span> Tin tức 
+						</a>
+					  </div>
+
+					  <div class="menu-item">
+						<a class="menungang" href="/nhiemvu">
+						  <span class="material-icons">task</span> Nhiệm vụ
+						</a>
+					  </div>
+
+					  <div class="menu-item">
+						<a class="menungang" href="/baocao">
+						  <span class="material-icons">list</span> Báo cáo
+						</a>
+					  </div>
+					</div>
+
+					
+					<div class="phanmenungang3">
+						<div class="avatar-container">
+						  <a href="#" class="avatar-link">
+							<img src="/images/images.png" alt="Avatar" class="avatar">
+						  </a>
+						  <div class="avatar-info">
+							<% if(session.QuyenHan == "admin") { %>
+							<p class="nhan-vien">
+									<span class="material-icons">person</span>
+									<a href="/nhanvien">Nhân viên</a>
+							</p>
+							<p class="phong-ban">
+									<span class="material-icons">domain</span>
+									<a href="/phongban">Phòng ban</a>
+							</p>
+							<p class="chuc-vu">
+									<span class="material-icons">badge</span>
+									<a href="/chucvu">Chức vụ</a>
+							</p>
+							<p class="bang-luong">
+									<span class="material-icons">book</span>
+									<a href="/luong">Bảng lương</a>
+							</p>
+							<p class="ngay-cong">
+									<span class="material-icons">event</span>
+									<a href="/chamcong">Ngày công</a>
+							</p>
+							<p class="tai-khoan">
+									<span class="material-icons">attribution</span>
+									<a href="/taikhoan">Tài khoản</a>
+							</p>
+							<p class="quan-ly">
+									<span class="material-icons">settings</span>
+									<a href="/admin">Quản lý</a>
+							</p>
+						<% } %>
+							<p class="dang-xuat">
+								<span class="material-icons">logout</span> 
+								<a href="/dangnhap">Đăng xuất</a>
+							</p>
+						  </div>
+						  <script>
+								document.querySelector('.avatar-link').addEventListener('click', function(event) {
+								  event.preventDefault();  // Ngừng hành động mặc định của liên kết
+								  const infoBox = document.querySelector('.avatar-info');
+								  // Toggle hiển thị thông tin
+								  if (infoBox.style.display === 'none' || infoBox.style.display === '') {
+									infoBox.style.display = 'block';
+								  } else {
+									infoBox.style.display = 'none';
+								  }
+								});
+						  </script>
+				</div>
+
+			</div>
+		</div>
+		<div id="phantrai">
+					<div class="khungmenu">
+						<p class="tieudemenu">DANH SÁCH NHÂN VIÊN NĂNG ĐỘNG</p>
+
+					  <div class="menu-item">
+						<img src="images\abc.jpg" alt="ABC">
+						<a class="menu" href="#">ABC</a>
+					  </div>
+
+					  <div class="menu-item">
+						<img src="xyz.jpg" alt="XYZ">
+						<a class="menu" href="#">XYZ</a>
+					  </div>
+
+					  <div class="menu-item">
+						<img src="asd.jpg" alt="ASD">
+						<a class="menu" href="#">ASD</a>
+					  </div>
+
+					  <div class="menu-item">
+						<img src="jkl.jpg" alt="JKL">
+						<a class="menu" href="#">JKL</a>
+					  </div>
+
+					  <div class="menu-item">
+						<img src="qwe.jpg" alt="QWE">
+						<a class="menu" href="#">QWE</a>
+					  </div>
+					</div>
+					<div class="footer-phantrai">
+						<p><strong>Liên hệ:</strong></p>
+						<p>Email: <a href="mailto:contact@example.com">sang_dth225740@student.agu.edu.vn</a></p>
+						<p>Hotline: 0123 456 789</p>
+						<p>Địa chỉ: 18 Ung Văn Khiêm - P. Mỹ Xuyên - TP. Long Xuyên - An Giang</p>
+						<p>© 2025 - Phú Sang AGU</p>
+					</div>
+		</div>
+
+        <!-- Nội dung chính -->
+		<div id="phangiua">
+					<div class="khointren">
+						<div class="khung-cuon">
+							<div class="hinh-cuon-container">
+								<!-- Nhiều hình ảnh cuộn -->
+								<img src="images/h1.jpeg" alt="Hình 1" class="hinhcuon">
+								<img src="images/h2.jpeg" alt="Hình 2" class="hinhcuon">
+								<img src="images/h3.jpeg" alt="Hình 3" class="hinhcuon">
+								<img src="images/h4.jpeg" alt="Hình 4" class="hinhcuon">
+								<img src="images/h5.jpeg" alt="Hình 5" class="hinhcuon">
+								<img src="images/h1.jpeg" alt="Hình 1" class="hinhcuon">
+								<img src="images/h2.jpeg" alt="Hình 2" class="hinhcuon">
+								<img src="images/h3.jpeg" alt="Hình 3" class="hinhcuon">
+								<img src="images/h4.jpeg" alt="Hình 4" class="hinhcuon">
+								<img src="images/h5.jpeg" alt="Hình 5" class="hinhcuon">
+							</div>
+						</div>
+					</div>
+					<div class="danh-sach-tin" id="danhSachTin">
+					  
+					</div>
+					<button type="button" id="btnKhoiPhuc" class="nut-khoi-phuc">Khôi phục</button>
+					<script>
+						document.getElementById("btnKhoiPhuc").addEventListener("click", function () {
+						  const danhSachTin = document.getElementById("danhSachTin");
+						  danhSachTin.innerHTML = "";
+
+						  dsBaiViet.forEach(bai => {
+							const html = `
+							  <div class="tin-tuc-ngang">
+								<a href="${bai.link}" class="anh-tieu-de-wrap">
+								  <img src="${bai.img}" alt="${bai.title}" class="anh-tin-ngang">
+								</a>
+								<div class="noi-dung-tin-ngang">
+								  <a href="${bai.link}" class="tieu-de-link">
+									<h3 class="tieu-de-tin">${bai.title}</h3>
+								  </a>
+								  <p class="chuyen-muc">Chuyên mục: <strong>${bai.category}</strong></p>
+								  <p class="thong-tin-tac-gia">
+									Đăng bởi <a href="${bai.authorLink}" class="link-nguoi-dang"><strong>${bai.author}</strong></a> - Ngày ${bai.date}
+								  </p>
+								  <p class="mo-ta-tin">${bai.desc}</p>
+								</div>
+							  </div>
+							`;
+							danhSachTin.insertAdjacentHTML("beforeend", html);
+						  });
+
+						  // Hiện lại nút "Xem thêm" và căn giữa
+						  document.getElementById("btnXemThemTinTuc").style.display = "block";
+
+
+						  // Ẩn nút khôi phục
+						  document.getElementById("btnKhoiPhuc").style.display = "none";
+						});
+
+
+
+					</script>
+					
+					
+					<div class="khoinduo">
+						  <div class="danh-sach-tin">
+							
+						  </div>
+
+						  <div class="tin-xem-them" id="tinXemThem"></div>
+
+						  <div class="xem-them-container">
+							<button id="btnXemThemTinTuc" class="nut-xem-them">Xem thêm tin tức & sự kiện</button>
+						  </div>
+					</div>
+						<script>
+						  const dsBaiViet = [
+							{
+							  img: "images/sukien6.jpg",
+							  title: "Hội chợ khởi nghiệp 2025",
+							  author: "Ngô Văn H",
+							  date: "19/05/2025",
+							  desc: "Sự kiện khởi nghiệp toàn quốc quy tụ các dự án sáng tạo...",
+							  link: "chitiet6.html",
+							  authorLink: "nguoidang6.html",
+							  category:"Tin tức"
+							},
+							{
+							  img: "images/sukien7.jpg",
+							  title: "Tọa đàm chuyển đổi số trong giáo dục",
+							  author: "Phạm Thị I",
+							  date: "17/05/2025",
+							  desc: "Các chuyên gia chia sẻ về AI, LMS và xu hướng học tập tương lai...",
+							  link: "chitiet7.html",
+							  authorLink: "nguoidang7.html",
+							  category:"Sự kiện"
+							},
+							{
+							  img: "images/sukien8.jpg",
+							  title: "Sinh viên IT đạt giải thưởng quốc tế",
+							  author: "Lê Minh J",
+							  date: "15/05/2025",
+							  desc: "Sinh viên ngành CNTT đã giành giải tại cuộc thi lập trình toàn cầu...",
+							  link: "chitiet8.html",
+							  authorLink: "nguoidang8.html",
+							  category: "Báo cáo"
+							},
+							{
+							  img: "images/sukien6.jpg",
+							  title: "Hội chợ khởi nghiệp 2025",
+							  author: "Ngô Văn H",
+							  date: "19/05/2025",
+							  desc: "Sự kiện khởi nghiệp toàn quốc quy tụ các dự án sáng tạo...",
+							  link: "chitiet6.html",
+							  authorLink: "nguoidang6.html",
+							  category:"Tin tức"
+							},
+							{
+							  img: "images/sukien7.jpg",
+							  title: "Tọa đàm chuyển đổi số trong giáo dục",
+							  author: "Phạm Thị I",
+							  date: "17/05/2025",
+							  desc: "Các chuyên gia chia sẻ về AI, LMS và xu hướng học tập tương lai...",
+							  link: "chitiet7.html",
+							  authorLink: "nguoidang7.html",
+							  category:"Sự kiện"
+							},
+							{
+							  img: "images/sukien8.jpg",
+							  title: "Sinh viên IT đạt giải thưởng quốc tế",
+							  author: "Lê Minh J",
+							  date: "15/05/2025",
+							  desc: "Sinh viên ngành CNTT đã giành giải tại cuộc thi lập trình toàn cầu...",
+							  link: "chitiet8.html",
+							  authorLink: "nguoidang8.html",
+							  category: "Báo cáo"
+							},
+							{
+							  img: "images/sukien6.jpg",
+							  title: "Hội chợ khởi nghiệp 2025",
+							  author: "Ngô Văn H",
+							  date: "19/05/2025",
+							  desc: "Sự kiện khởi nghiệp toàn quốc quy tụ các dự án sáng tạo...",
+							  link: "chitiet6.html",
+							  authorLink: "nguoidang6.html",
+							  category:"Tin tức"
+							},
+							{
+							  img: "images/sukien7.jpg",
+							  title: "Tọa đàm chuyển đổi số trong giáo dục",
+							  author: "Phạm Thị I",
+							  date: "17/05/2025",
+							  desc: "Các chuyên gia chia sẻ về AI, LMS và xu hướng học tập tương lai...",
+							  link: "chitiet7.html",
+							  authorLink: "nguoidang7.html",
+							  category:"Sự kiện"
+							},
+							{
+							  img: "images/sukien8.jpg",
+							  title: "Sinh viên IT đạt giải thưởng quốc tế",
+							  author: "Lê Minh J",
+							  date: "15/05/2025",
+							  desc: "Sinh viên ngành CNTT đã giành giải tại cuộc thi lập trình toàn cầu...",
+							  link: "chitiet8.html",
+							  authorLink: "nguoidang8.html",
+							  category: "Báo cáo"
+							}
+						  ];
+
+						  let soLuongDaHien = 0;
+						  const soLanHien = 6;
+
+						  function hienThemTinTrongKhoiDuoi() {
+							  const container = document.getElementById("tinXemThem");
+							  const end = Math.min(soLuongDaHien + soLanHien, dsBaiViet.length);
+
+							  for (let i = soLuongDaHien; i < end; i++) {
+								const bai = dsBaiViet[i];
+								const html = `
+								  <div class="tin-tuc-ngang">
+									<a href="${bai.link}" class="anh-tieu-de-wrap">
+									  <img src="${bai.img}" alt="${bai.title}" class="anh-tin-ngang">
+									</a>
+									<div class="noi-dung-tin-ngang">
+									  <a href="${bai.link}" class="tieu-de-link">
+										<h3 class="tieu-de-tin">${bai.title}</h3>
+									  </a>
+									  <p class="chuyen-muc">Chuyên mục: <strong>${bai.category}</strong></p>
+									  <p class="thong-tin-tac-gia">
+										Đăng bởi <a href="${bai.authorLink}" class="link-nguoi-dang"><strong>${bai.author}</strong></a> - Ngày ${bai.date}
+									  </p>
+									  <p class="mo-ta-tin">${bai.desc}</p>
+									</div>
+								  </div>
+								`;
+								container.insertAdjacentHTML("beforeend", html);
+							  }
+
+							  soLuongDaHien = end;
+
+							  if (soLuongDaHien >= dsBaiViet.length) {
+								document.getElementById("btnXemThemTinTuc").style.display = "none";
+							  }
+							}
+
+						  hienThemTinTrongKhoiDuoi();
+
+						
+
+						  document.getElementById("btnXemThemTinTuc").addEventListener("click", hienThemTinTrongKhoiDuoi);
+						  const formTimKiem = document.getElementById("formTimKiem");
+						  const inputTimKiem = document.getElementById("inputTimKiem");
+						  const danhSachTin = document.getElementById("danhSachTin");
+
+						  formTimKiem.addEventListener("submit", function (e) {
+							  document.getElementById("btnKhoiPhuc").style.display = "block";
+							  
+							  e.preventDefault(); // Ngăn reload
+							  document.querySelector(".khoinduo").style.display = "none";
+
+							  const tuKhoa = inputTimKiem.value.toLowerCase().trim();
+							  danhSachTin.innerHTML = ""; // Xóa nội dung cũ
+
+							  // Ẩn khối khoinduo khi tìm kiếm
+							  document.querySelector(".khoinduo").style.display = "none";
+
+							  const ketQua = dsBaiViet.filter(bai => bai.author.toLowerCase().includes(tuKhoa));
+
+							  if (ketQua.length === 0) {
+								danhSachTin.innerHTML = "<p>Không tìm thấy kết quả.</p>";
+							  } else {
+								ketQua.forEach(bai => {
+								  const html = `
+									<div class="tin-tuc-ngang">
+									  <a href="${bai.link}" class="anh-tieu-de-wrap">
+										<img src="${bai.img}" alt="${bai.title}" class="anh-tin-ngang">
+									  </a>
+									  <div class="noi-dung-tin-ngang">
+										<a href="${bai.link}" class="tieu-de-link">
+										  <h3 class="tieu-de-tin">${bai.title}</h3>
+										</a>
+										<p class="chuyen-muc">Chuyên mục: <strong>${bai.category}</strong></p>
+										<p class="thong-tin-tac-gia">
+										  Đăng bởi <a href="${bai.authorLink}" class="link-nguoi-dang"><strong>${bai.author}</strong></a> - Ngày ${bai.date}
+										</p>
+										<p class="mo-ta-tin">${bai.desc}</p>
+									  </div>
+									</div>
+								  `;
+								  danhSachTin.insertAdjacentHTML("beforeend", html);
+								});
+							  }
+							});
+
+						</script>
+
+		</div>
+		<div id="phanphai">
+					<div id="danhSachThongBao">
+						<p>THÔNG BÁO</p>
+						<div class="thongbao">
+							<p class="tieude">Khẩn! Kiểm tra</p>
+							<p class="ngaydang">27/09/2012 07:30</p>
+							<p class="noidung">Kiểm tra môn LT Web vào chiều ngày 06/10, phòng MT05. Nhóm 1 bắt đầu lúc 13g30, nhóm 2 bắt đầu lúc 15g00 (mỗi nhóm 40SV, chia theo thứ tự trong danh sách lớp).</p>
+							<p class="email"><a href="mailto:">ltruong@gmail.com</a></p>
+						</div>
+						<div class="thongbao">
+							<p class="tieude">Đổi buổi thực hành</p>
+							<p class="ngaydang">26/09/2012 17:15</p>
+							<p class="noidung">Thứ bảy tuần này phòng máy bận thi, buổi thực hành sáng thứ bảy sẽ dời sang sáng thứ sáu.</p>
+							<p class="email">ltruong@gmail.com</p>
+						</div>
+						<div class="thongbao">
+							<p class="tieude">Địa chỉ download bài tập</p>
+							<p class="ngaydang">23/08/2012 15:45</p>
+							<p class="noidung">Các bạn có thể download tài liệu học tập tại <a href="http://www.mediafire.com/?gl6hfz1agkdxc">đây</a></p>
+							<p class="email">ltruong@gmail.com</p>
+						</div>
+					</div>
+					<div class="xem-them-container">
+					  <button id="btnXemThemThongBao" class="nut-xem-them">Xem thêm thông báo</button>
+					</div>
+					<!-- Đặt ở cuối file HTML -->
+					<script>
+					  window.onload = function () {
+						const danhSachThem = [
+						  {
+							tieude: "Địa chỉ download",
+							ngaydang: "23/08/2012 15:45",
+							noidung: 'Các bạn có thể download tài liệu học tập tại <a href="http://www.mediafire.com/?gl6hfz1agkdxc">đây</a>',
+							email: "ltruong@gmail.com"
+						  },
+						  {
+							tieude: "Thông báo",
+							ngaydang: "20/08/2012 10:00",
+							noidung: "Đã cập nhật lịch học mới tại bảng thông báo khoa.",
+							email: "ltruong@gmail.com"
+						  }
+						];
+
+						let soDaHien = 0;
+						const moiLanHien = 1;
+
+						function hienThongBaoMoi() {
+						  const container = document.getElementById("danhSachThongBao");
+						  const end = Math.min(soDaHien + moiLanHien, danhSachThem.length);
+
+						  for (let i = soDaHien; i < end; i++) {
+							const tb = danhSachThem[i];
+							const html = `
+							  <div class="thongbao">
+								<p class="tieude">${tb.tieude}</p>
+								<p class="ngaydang">${tb.ngaydang}</p>
+								<p class="noidung">${tb.noidung}</p>
+								<p class="email">${tb.email}</p>
+							  </div>
+							`;
+							container.insertAdjacentHTML("beforeend", html);
+						  }
+
+						  soDaHien = end;
+
+						  if (soDaHien >= danhSachThem.length) {
+							document.getElementById("btnXemThemThongBao").style.display = "none";
+						  }
+						}
+
+						document.getElementById("btnXemThemThongBao").addEventListener("click", hienThongBaoMoi);
+					  };
+					</script>
+
+		</div>
+        <!-- Footer -->
+        <hr class="mb-0">
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>

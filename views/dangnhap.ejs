@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <title>Đăng nhập</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+    }
+
+    #khungtrang {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+    }
+
+    #phangiua {
+	  display: flex;
+	  justify-content: center;
+	  align-items: flex-start;
+	  gap: 50px;
+	  padding: 40px 20px;
+	  flex-wrap: nowrap; /* Không tự xuống hàng */
+	  width:100%
+	}
+
+	.blockdn {
+	  background-color: #fff;
+	  padding: 30px;
+	  border-radius: 8px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	  width: 45%; /* Mỗi block chiếm 45% */
+	  box-sizing: border-box;
+	}
+	.blocklc {
+	  text-align: center;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  background-color: #fff;
+	  padding: 30px;
+	  border-radius: 8px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	  width: 45%
+	  box-sizing: border-box;
+	}
+	.blocklc img {
+	  max-width: 100%;
+	  height: auto;
+	  margin: 20px auto;
+	  border-radius: 10px;
+	  text-align: center;
+	}
+
+    .blocklc h2, .blockdn h2 {
+      margin-top: 0;
+	  color: #007B5E;
+	  margin-bottom: 20px;
+	  font-family: cursive;
+	  font-weight: bold;
+	  
+    }
+	.block p {
+	  line-height: 1.6;
+	  color: #333;
+	  font-size: 16px;
+	}
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .intro-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="khungtrang">
+
+    <!-- Banner -->
+    <div id="phantren">
+      <img src="images/banner.png" class="banner" />
+    </div>
+
+    <div id="phangiua">
+
+      
+
+      <!-- Block 2: Lời chào và hình ảnh -->
+      <div class="blocklc">
+        <h2>Chào mừng đến với chiến dịch Mùa hè xanh!</h2>
+		<p>
+			Đây là nơi gắn kết những trái tim đầy nhiệt huyết, cùng nhau lan tỏa tinh thần cống hiến và sẻ chia.
+			<br><br>
+			Mùa hè xanh không chỉ là những ngày nắng rực rỡ, mà còn là hành trình của tuổi trẻ –
+			<strong>nơi thanh xuân, năng động và khát khao đóng góp được thắp sáng từng ngày</strong>.
+		</p>
+        <div class="hinh-loichao">
+			<img src="images/mhx.png" alt="Mùa hè xanh">
+		</div>
+      </div>
+	  <div class="card-body">
+				<form action="/dangnhap" method="post" class="needs-validation" novalidate>
+					<div class="mb-3">
+						<label for="TenDangNhap" class="form-label">Tên đăng nhập</label>
+						<input type="text" class="form-control" id="TenDangNhap" name="TenDangNhap" required />
+					</div>
+					
+					<div class="mb-3">
+						<label for="MatKhau" class="form-label">Mật khẩu</label>
+						<input type="password" class="form-control" id="MatKhau" name="MatKhau" required />
+					</div>
+					
+					<button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</button>
+				</form>
+				
+					<div class="mt-3 text-center">
+					  <a href="/dangky" style="font-weight: 300; text-decoration: underline; color: #007BFF;">
+						Đăng ký
+					  </a>
+					</div>
+				
+	  </div>
+  </div>
+</body>
+</html>

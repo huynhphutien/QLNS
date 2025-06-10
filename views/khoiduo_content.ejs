@@ -1,0 +1,19 @@
+<h2>📚 Danh sách bài viết</h2>
+<% danhSachBaiViet.forEach(bv => { %>
+  <div class="tin-tuc-ngang">
+    <a href="#" class="anh-tieu-de-wrap">
+      <img src="<%= bv.HinhAnh %>" alt="<%= bv.TieuDe %>" class="anh-tin-ngang">
+    </a>
+    <div class="noi-dung-tin-ngang">
+      <a href="#" class="tieu-de-link">
+        <h3 class="tieu-de-tin"><%= bv.TieuDe %></h3>
+      </a>
+      <p class="chuyen-muc">Chuyên mục: <strong><%= bv.ChuDe?.TenChuDe || "Không rõ" %></strong></p>
+      <p class="thong-tin-tac-gia">
+        Đăng bởi <a href="#" class="link-nguoi-dang"><strong><%= bv.TaiKhoan?.TenTaiKhoan || "Ẩn danh" %></strong></a>
+        - Ngày <%= bv.NgayDang.toLocaleDateString() %>
+      </p>
+      <p class="mo-ta-tin"><%= bv.TomTat %></p>
+    </div>
+  </div>
+<% }) %>
